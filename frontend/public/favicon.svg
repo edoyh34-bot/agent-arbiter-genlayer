@@ -1,15 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <rect width="32" height="32" rx="6" fill="#0b0e14"/>
-  <g transform="translate(16,14)" fill="none" stroke="#c879ff" stroke-width="1.8" stroke-linecap="round">
-    <line x1="-8" y1="-1" x2="8" y2="-1"/>
-    <line x1="0" y1="-1" x2="0" y2="7"/>
-    <line x1="-3" y1="7" x2="3" y2="7"/>
-    <line x1="-8" y1="-1" x2="-10" y2="5"/>
-    <line x1="-8" y1="-1" x2="-6" y2="5"/>
-    <line x1="-10" y1="5" x2="-6" y2="5"/>
-    <line x1="8" y1="-1" x2="6" y2="5"/>
-    <line x1="8" y1="-1" x2="10" y2="5"/>
-    <line x1="6" y1="5" x2="10" y2="5"/>
-  </g>
-  <circle cx="16" cy="13" r="2" fill="#c879ff"/>
+  <rect width="32" height="32" rx="7" fill="#0d1020"/>
+  <path d="M8 7h16M16 7v14M6 21h20M6 7l-1 3M26 7l1 3M6 10h-1v5h1M26 10h1v5h-1" stroke="#c084fc" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <circle cx="16" cy="8" r="2" fill="#c084fc"/>
 </svg>

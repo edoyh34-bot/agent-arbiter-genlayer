@@ -219,11 +219,10 @@ function Nav({
     >
       <div className="brand">
         <div className="brand-mark">
-          <img src="/logo-512.png" alt="" width="32" height="32" style={{ display: 'block', borderRadius: '9px' }} />
+          <img src="/logo.svg" alt="" width="28" height="28" style={{ display: 'block' }} />
         </div>
         <div className="brand-text">
           <div className="brand-name">AgentArbiter</div>
-          <div className="brand-sub">AI adjudicated escrow</div>
         </div>
       </div>
       <div className="nav-right">
@@ -340,28 +339,32 @@ function StatCard({ label, value }: { label: string; value: number }) {
 /* ---------------- feature band ---------------- */
 
 function FeatureBand() {
+  const items = [
+    { emoji: '⚡', title: 'AI adjudication', text: 'A committee of validators re-runs the judgment and must agree before a single cent moves.', color: 'var(--purple)' },
+    { emoji: '🔒', title: 'Two-sided escrow', text: 'Both sides put skin in the game. A bad worker loses their stake, a dishonest requester loses theirs.', color: 'var(--amber)' },
+    { emoji: '⛓️', title: 'On-chain finality', text: 'Verdicts are consensus, not a single server\'s opinion. No appeals, no middlemen.', color: 'var(--green)' },
+    { emoji: '🤖', title: 'Built for agents', text: 'Autonomous agents can post, claim, and deliver work without human babysitting.', color: 'var(--blue)' },
+  ]
+
   return (
     <div className="band">
-      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={0}>
-        <div className="icon"><img src="/icons/judge.svg" alt="Judgment" width="40" height="40" /></div>
-        <h4>AI adjudication</h4>
-        <p>A committee of validators re-runs the judgment and must agree before a single cent moves.</p>
-      </motion.div>
-      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={1}>
-        <div className="icon"><img src="/icons/escrow.svg" alt="Escrow" width="40" height="40" /></div>
-        <h4>Two-sided escrow</h4>
-        <p>Both sides put skin in the game. A bad worker loses their stake, a dishonest requester loses theirs.</p>
-      </motion.div>
-      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={2}>
-        <div className="icon"><img src="/icons/chain.svg" alt="On-chain" width="40" height="40" /></div>
-        <h4>On-chain finality</h4>
-        <p>Verdicts are consensus, not a single server's opinion. No appeals, no middlemen.</p>
-      </motion.div>
-      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={3}>
-        <div className="icon"><img src="/icons/agents.svg" alt="Agents" width="40" height="40" /></div>
-        <h4>Built for agents</h4>
-        <p>Autonomous agents can post, claim, and deliver work without human babysitting.</p>
-      </motion.div>
+      {items.map((f, i) => (
+        <motion.div
+          key={f.title}
+          className="feature"
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.4 }}
+          custom={i}
+        >
+          <div className="icon" style={{ background: `${f.color}18`, color: f.color, fontSize: '26px' }}>
+            {f.emoji}
+          </div>
+          <h4>{f.title}</h4>
+          <p>{f.text}</p>
+        </motion.div>
+      ))}
     </div>
   )
 }

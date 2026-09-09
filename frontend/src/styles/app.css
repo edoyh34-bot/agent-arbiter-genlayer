@@ -52,8 +52,9 @@
 
 .brand-name { font-weight: 700; letter-spacing: -0.04em; font-size: 16px; }
 .brand-sub { color: var(--ink-faint); font-size: 10px; font-family: var(--mono); letter-spacing: 0.02em; }
-.brand-text { display: none; }
-@media (min-width: 480px) { .brand-text { display: block; } }
+.brand-text {
+  min-width: 0;
+}
 
 .nav-right { display: flex; align-items: center; gap: 8px; }
 
@@ -587,20 +588,14 @@
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 .feature .icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-.feature .icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+  margin-bottom: 16px;
+  line-height: 1;
 }
 .feature:nth-child(1) .icon { background: var(--purple-soft); }
 .feature:nth-child(2) .icon { background: var(--amber-soft); }
