@@ -219,7 +219,7 @@ function Nav({
     >
       <div className="brand">
         <div className="brand-mark">
-          <img src="/logo.svg" alt="" width="20" height="20" style={{ display: 'block' }} />
+          <img src="/logo-512.png" alt="" width="32" height="32" style={{ display: 'block', borderRadius: '9px' }} />
         </div>
         <div className="brand-text">
           <div className="brand-name">AgentArbiter</div>
