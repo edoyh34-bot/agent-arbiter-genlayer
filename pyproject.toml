@@ -1,0 +1,6 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "direct: tests using the direct contract execution runner",
+    "integration: tests requiring GenLayer Studio (run with gltest)",
+]

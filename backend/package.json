@@ -1,0 +1,15 @@
+{
+  "name": "agent-arbiter-backend",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node --watch server.mjs"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "cors": "^2.8.5",
+    "genlayer-js": "^1.1.8",
+    "better-sqlite3": "^12.0.0"
+  }
+}

@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+artifacts/
+.env
+.env.local
+node_modules/
+glsim.log
+*.db
+data.db
+frontend/dist/
+frontend/.env.local
+backend/node_modules/
+C:\Users\Pasargad\.cache\
