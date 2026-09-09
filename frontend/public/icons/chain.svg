@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="14" fill="#4ade80" opacity="0.1"/>
+  <g transform="translate(8,12)" stroke="#4ade80" stroke-width="2" stroke-linecap="round" fill="none">
+    <!-- chain link 1 -->
+    <rect x="4" y="8" width="12" height="12" rx="4"/>
+    <rect x="12" y="0" width="12" height="12" rx="4"/>
+    <!-- chain link 2 -->
+    <rect x="20" y="8" width="12" height="12" rx="4"/>
+    <rect x="28" y="16" width="12" height="12" rx="4"/>
+    <!-- checkmark inside -->
+    <polyline points="13,14 16,17 24,9" stroke-width="2.2"/>
+  </g>
+</svg>

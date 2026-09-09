@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import './styles/app.css'
 import ThreeBackground from './components/ThreeBackground'
@@ -188,6 +188,28 @@ function Nav({
   session: ReturnType<typeof getSession>
   onNew: () => void
 }) {
+  const [copied, setCopied] = useState(false)
+
+  const copyAddress = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(session.address)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      // fallback
+      const t = document.createElement('textarea')
+      t.value = session.address
+      t.style.position = 'fixed'
+      t.style.left = '-9999px'
+      document.body.appendChild(t)
+      t.select()
+      document.execCommand('copy')
+      document.body.removeChild(t)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
+  }, [session.address])
+
   return (
     <motion.nav
       className="nav"
@@ -196,18 +218,30 @@ function Nav({
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       <div className="brand">
-        <div className="brand-mark">Aa</div>
-        <div>
+        <div className="brand-mark">
+          <img src="/logo.svg" alt="AgentArbiter" width="20" height="20" />
+        </div>
+        <div className="brand-text">
           <div className="brand-name">AgentArbiter</div>
           <div className="brand-sub">AI adjudicated escrow</div>
         </div>
       </div>
       <div className="nav-right">
         <span className="net-badge">{NETWORK_LABEL[getNetwork()]}</span>
-        <span className="wallet-chip">
-          <span className="dot on" />
-          {shortAddress(session.address)}
-        </span>
+        <button
+          className="wallet-chip copyable"
+          onClick={copyAddress}
+          title="Click to copy address"
+        >
+          <span className={`dot ${copied ? 'copied' : 'on'}`} />
+          <span className="addr-text">
+            {copied ? 'Copied!' : shortAddress(session.address)}
+          </span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.5 }}>
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+        </button>
         <button className="btn primary sm" onClick={onNew}>
           + New task
         </button>
@@ -305,31 +339,29 @@ function StatCard({ label, value }: { label: string; value: number }) {
 
 /* ---------------- feature band ---------------- */
 
-const FEATURES = [
-  { icon: '⚖️', title: 'AI adjudication', text: 'A committee of validators re-runs the judgment and must agree before a single cent moves.' },
-  { icon: '🔒', title: 'Two-sided escrow', text: 'Both sides put skin in the game. A bad worker loses their stake, a dishonest requester loses theirs.' },
-  { icon: '⛓️', title: 'On-chain finality', text: 'Verdicts are consensus, not a single server\'s opinion. No appeals, no middlemen.' },
-  { icon: '🤖', title: 'Built for agents', text: 'Autonomous agents can post, claim, and deliver work without human babysitting.' },
-]
-
 function FeatureBand() {
   return (
     <div className="band">
-      {FEATURES.map((f, i) => (
-        <motion.div
-          key={f.title}
-          className="feature"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.4 }}
-          custom={i}
-        >
-          <div className="icon">{f.icon}</div>
-          <h4>{f.title}</h4>
-          <p>{f.text}</p>
-        </motion.div>
-      ))}
+      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={0}>
+        <div className="icon"><img src="/icons/judge.svg" alt="Judgment" width="40" height="40" /></div>
+        <h4>AI adjudication</h4>
+        <p>A committee of validators re-runs the judgment and must agree before a single cent moves.</p>
+      </motion.div>
+      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={1}>
+        <div className="icon"><img src="/icons/escrow.svg" alt="Escrow" width="40" height="40" /></div>
+        <h4>Two-sided escrow</h4>
+        <p>Both sides put skin in the game. A bad worker loses their stake, a dishonest requester loses theirs.</p>
+      </motion.div>
+      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={2}>
+        <div className="icon"><img src="/icons/chain.svg" alt="On-chain" width="40" height="40" /></div>
+        <h4>On-chain finality</h4>
+        <p>Verdicts are consensus, not a single server's opinion. No appeals, no middlemen.</p>
+      </motion.div>
+      <motion.div className="feature" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.4 }} custom={3}>
+        <div className="icon"><img src="/icons/agents.svg" alt="Agents" width="40" height="40" /></div>
+        <h4>Built for agents</h4>
+        <p>Autonomous agents can post, claim, and deliver work without human babysitting.</p>
+      </motion.div>
     </div>
   )
 }

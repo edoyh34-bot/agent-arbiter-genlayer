@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#c879ff"/>
+      <stop offset="100%" stop-color="#ffb830"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#0b0e14"/>
+  <!-- scales of justice -->
+  <g transform="translate(64,58)" fill="none" stroke="url(#g)" stroke-width="2.8" stroke-linecap="round">
+    <!-- beam -->
+    <line x1="-32" y1="-2" x2="32" y2="-2"/>
+    <!-- pillar -->
+    <line x1="0" y1="-2" x2="0" y2="28"/>
+    <line x1="-6" y1="28" x2="6" y2="28"/>
+    <!-- left pan -->
+    <line x1="-32" y1="-2" x2="-40" y2="18"/>
+    <line x1="-32" y1="-2" x2="-24" y2="18"/>
+    <line x1="-40" y1="18" x2="-24" y2="18"/>
+    <!-- right pan -->
+    <line x1="32" y1="-2" x2="24" y2="18"/>
+    <line x1="32" y1="-2" x2="40" y2="18"/>
+    <line x1="24" y1="18" x2="40" y2="18"/>
+    <!-- base -->
+    <line x1="-12" y1="28" x2="12" y2="28"/>
+  </g>
+  <!-- AI dot -->
+  <circle cx="64" cy="56" r="3" fill="url(#g)"/>
+</svg>

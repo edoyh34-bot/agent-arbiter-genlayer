@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="14" fill="#f5b545" opacity="0.1"/>
+  <g transform="translate(10,10)" stroke="#f5b545" stroke-width="1.8" stroke-linecap="round" fill="none">
+    <!-- lock body -->
+    <rect x="4" y="16" width="20" height="14" rx="3"/>
+    <!-- lock shackle -->
+    <path d="M12 16V12a4 4 0 0 1 8 0v4"/>
+    <!-- two arrows pointing opposite directions (escrow) -->
+    <line x1="14" y1="34" x2="4" y2="28" opacity="0.6"/>
+    <line x1="14" y1="34" x2="14" y2="28" opacity="0.6"/>
+    <line x1="34" y1="34" x2="44" y2="28" opacity="0.6"/>
+    <line x1="34" y1="34" x2="34" y2="28" opacity="0.6"/>
+  </g>
+</svg>
