@@ -1,1 +1,0 @@
-﻿{"jsonrpc":"2.0","method":"sim_deploy","params":["contracts/agent_arbiter.py"],"id":1}
